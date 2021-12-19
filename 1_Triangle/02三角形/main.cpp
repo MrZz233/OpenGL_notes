@@ -13,6 +13,18 @@ float vertices[] = {
 	 0.0f,  0.5f, 0.0f
 };
 
+//box顶点数据
+float vertices_box[] = {
+	0.5f, 0.5f, 0.0f,   // 右上角
+	0.5f, -0.5f, 0.0f,  // 右下角
+	-0.5f, -0.5f, 0.0f, // 左下角
+	-0.5f, 0.5f, 0.0f   // 左上角
+};
+//box顶点索引
+unsigned int indices[] = { // 注意索引从0开始! 
+	0, 1, 3, // 第一个三角形
+	1, 2, 3  // 第二个三角形
+};
 
 int main()
 {
@@ -95,15 +107,16 @@ int main()
 		std::cout << "ERROR::SHADER_PROGRAM::LINK_FAILED\n" << infoLog << std::endl;
 	}
 
-	//创建VBO，并将顶点数据加载至缓冲
+	//创建VBO
 	unsigned int VBO;
 	glGenBuffers(1, &VBO);
-	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	//设置顶点属性之前记得绑定VAO
 	unsigned int VAO;
 	glGenVertexArrays(1, &VAO);
 	glBindVertexArray(VAO);
+	//绑定VBO，将顶点数据加载至缓冲
+	glBindBuffer(GL_ARRAY_BUFFER, VBO);
+	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 	//设置顶点属性
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
