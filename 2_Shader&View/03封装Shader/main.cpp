@@ -84,8 +84,6 @@ int main()
 	//第五个参数表示了一开始读取数据时的偏移量，坐标不需要变动，颜色则是离开头偏移了3个loat
 	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
 	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-	glEnableVertexAttribArray(1);
 
 	//设置绘图模式为线框模式,绘制三角形时，只画边。
 	//第一个参数说明三角形正反面都要绘制
