@@ -116,12 +116,12 @@ int main()
 		return -1;
 	}
 
+	//一些设置
+	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
+
 	//注册回调
 	glfwSetFramebufferSizeCallback(window, framebuffer_size_callback);
 	glfwSetCursorPosCallback(window, mouse_callback);
-
-	//一些设置
-	glfwSetInputMode(window, GLFW_CURSOR, GLFW_CURSOR_DISABLED);
 
 	Shader ourShader("shaders/test.vs", "shaders/test.fs");
 	ourShader.use();
