@@ -22,6 +22,8 @@ const float SPEED = 2.5f;
 const float SENSITIVITY = 0.1f;
 const float ZOOM = 45.0f;
 
+int iteration = 10;
+
 //相机类
 class Camera
 {
@@ -62,7 +64,7 @@ public:
 	//返回View矩阵
 	glm::mat4 GetViewMatrix()
 	{
-		return glm::lookAt(Position, Position + Front, Up);
+		return glm::lookAt(Position, Position + Front, WorldUp);
 	}
 
 	//键盘输入处理
@@ -96,7 +98,8 @@ public:
 			if (Pitch < -89.0f)
 				Pitch = -89.0f;
 		}
-
+		if(--iteration<0)
+			std::cout <<"yaw:"<< Yaw << " | pitch:" << Pitch;
 		//更新相机的Front、Right、Up
 		updateCameraVectors();
 	}
@@ -120,6 +123,10 @@ private:
 		front.x = cos(glm::radians(Yaw)) * cos(glm::radians(Pitch));
 		front.y = sin(glm::radians(Pitch));
 		front.z = sin(glm::radians(Yaw)) * cos(glm::radians(Pitch));
+		if (iteration < 0) {
+			std::cout << "   x:" << front.x << " y:" << front.y << " z:" << front.z << std::endl;
+			iteration = 10;
+		}		
 		Front = glm::normalize(front);
 		//计算相机的右方和上方
 		Right = glm::normalize(glm::cross(Front, WorldUp)); 
