@@ -23,8 +23,6 @@ float lastX = SCR_WIDTH / 2.0f;
 float lastY = SCR_HEIGHT / 2.0f;
 bool firstMouse = true;
 
-float yaw = -90.0f, pitch = 0.0f; //初始状态时相机朝向是(0,0,-1)，对应了pitch=0，yaw=-90。
-
 //摄像机
 Camera camera(glm::vec3(0.0f, 0.0f, 3.0f));
 
