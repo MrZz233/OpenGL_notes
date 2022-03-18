@@ -1,0 +1,40 @@
+[Header]
+ICOfile = "Lobby-Center_Thumb.jpg"
+PREVIEWfile = "Lobby-Center_preview.jpg"
+Name = "Popcorn Lobby"
+Author = "Blochi"
+Location = "Hollywood"
+Comment = "Entrance Lobby of the Mans Chinese Theatre, red ambient and shiny popcorn counter"
+GEOlat = 34.10203281869608
+GEOlong = -118.34095001220703
+Link = "http://www.hdrlabs.com/sibl/archive.html"
+Date = "2007:03:12"
+Time = "08:52:00"
+Height = 1.55
+
+[Background]
+; heavily tonemapped
+BGfile = "Lobby-Center_8k_TMap.jpg"
+BGmap = 1
+BGu = 0.000000
+BGv = 0.000000
+BGheight = 4000
+
+[Enviroment]
+EVfile = "Lobby-Center_Env.hdr"
+EVmap = 1
+EVu = 0.000000
+EVv = 0.000000
+EVheight = 180
+EVmulti = 1.600000
+EVgamma = 1.600000
+
+[Reflection]
+REFfile = "Lobby-Center_2k.hdr"
+REFmap = 1
+REFu = 0.000000
+REFv = 0.000000
+REFheight = 1024
+REFmulti = 1.600000
+REFgamma = 1.600000
+
